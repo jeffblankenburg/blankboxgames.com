@@ -1,0 +1,151 @@
+@{
+    var emailaddress = Request.Form["email"];
+    var message = "Not assigned.";
+    try{
+        if (IsPost && Validation.IsValid()) {
+ 
+        // Send email
+        WebMail.Send(to:"hello@blankboxgames.com", from:"hello@blankboxgames.com",
+            subject: "Interested Subscriber to Blank Box Games",
+ 
+            body: emailaddress
+           );
+
+           // Send email
+        WebMail.Send(to:emailaddress, from:"hello@blankboxgames.com",
+            subject: "Blank Box Games is coming soon!",
+ 
+            body: "We are really looking forward to bringing some great new games to a unique subscription box in the near future.  We will send you an email as soon as everything is ready!"
+           );
+           message = "Congratulations!  We will send you an email as soon as we are ready to start accepting orders!";
+        }
+    }
+    catch(Exception ex){
+        message = "Email could not be sent!";
+    }
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="p:domain_verify" content="3510c97d435791e4841a726eb8277014"/>
+    <link rel="icon" href="assets/img/favicon.ico">
+
+    <title>Blank Box Games - A subscription for gamers.</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/ionicons.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div id="h">
+      <div class="logo"><a href="http://blankboxgames.azurewebsites.net" style="color: #FFF;">BLANK BOX GAMES</a></div>
+      <div class="social hidden-xs">
+        <a href="http://twitter.com/blankboxgames"><i class="ion-social-twitter"></i></a>
+        <a href="http://instagram.com/blankboxgames"><i class="ion-social-instagram"></i></a>
+        <a href="http://facebook.com/blankboxgames"><i class="ion-social-facebook"></i></a>
+          <a href="http://pinterest.com/blankboxgames"><i class="ion-social-pinterest"></i></a>
+            <a href="http://blankboxgames.wordpress.com"><i class="ion-social-wordpress"></i></a>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 centered">
+            <h1>We are building a new kind of box,</br>where new games from proven creators show up at your  front door.</h1>
+              
+            <div class="mtb">
+              @if(IsPost){
+                  <h4>@message</h4>
+              }
+              else
+              {
+                <form role="form" method="post" enctype="plain" action="//blankboxgames.us13.list-manage.com/subscribe/post?u=dc939542e91c7e8b49db27f07&amp;id=8976ec38fb"> 
+                  <h6>GIVE US YOUR EMAIL, AND WE'LL LET YOU KNOW WHEN WE'RE LAUNCHING!</h6>
+                <input type="email" name="EMAIL" class="subscribe-input" placeholder="Enter your e-mail address..." required>
+                <button class='btn btn-conf btn-green' type="submit">Get more info</button>
+              </form>
+}
+            </div><!--/mt-->
+          </div>
+        </div><!--/row-->
+      </div><!--/container-->
+    </div><!-- /H -->
+
+
+
+    <div id="green">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 centered">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <h3>This box is different.  It's not just games I could buy elsewhere, and they're outstanding!</h3>
+                  <h5><tgr>MISS PEACOCK</tgr></h5>
+                </div>
+                <div class="item">
+                  <h3>Great games, cool gaming gear, and free shipping?  How do I sign up twice?</h3>
+                  <h5><tgr>RICH UNCLE PENNYBAGS</tgr></h5>
+                </div>
+                <div class="item">
+                  <h3>It is quite remarkable how few named characters the board game world has created.  We should really work on that.</h3>
+                  <h5><tgr>THE OLD MAID</tgr></h5>
+                </div>
+              </div>
+            </div><!--/Carousel-->
+
+          </div>
+        </div><!--/row-->
+      </div><!--/container-->
+    </div><!--/green-->
+
+    <div id="f">
+      <div class="container">
+        <div class="row centered">
+          <h2>You Can Contact Us</h2>
+          <h5><a href="mailto:hello@blankboxgames.com">HELLO@BLANKBOXGAMES.COM</a></h5>
+
+          <p class="mt">
+            <a href="http://twitter.com/blankboxgames"><i class="ion-social-twitter"></i></a>
+            <a href="http://instagram.com/blankboxgames"><i class="ion-social-instagram"></i></a>
+            <a href="http://facebook.com/blankboxgames"><i class="ion-social-facebook"></i></a>
+            <a href="http://pinterest.com/blankboxgames"><i class="ion-social-pinterest"></i></a>
+            <a href="http://blankboxgames.wordpress.com"><i class="ion-social-wordpress"></i></a>
+          </p>
+          <h6 class="mt">COPYRIGHT @DateTime.Today.Year - BLANK BOX GAMES</h6>
+        </div><!--/row-->
+      </div><!--/container-->
+    </div><!--/F-->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/retina-1.1.0.js"></script>
+
+      <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+      <script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+  </body>
+</html>
